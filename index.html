@@ -92,7 +92,19 @@
       <p class="eyebrow" data-i18n="dataNote">Примітка про дані</p>
       <h2 data-i18n="prototypeShows">Що це за дані?</h2>
       <p data-i18n-html="sourceDescription">Геодані містять 1 780 полігонів адміністративних меж громад, та інформацію про зміни чисельності — від <code>p2021</code> до <code>p2026</code>. Система координат - WGS 84. Полігони меж громад спрощено для ефективнішого відображення у вебі.</p>
-      <p data-i18n="scopeDescription">Кількість мешканців для кожного окремого полігону громади розрахована за формулою \(P_j = \sum_i V_i \,\frac{A(C_i \cap H_j)}{A(C_i)}\).</p>
+      <p data-i18n="scopeDescription">Кількість мешканців для кожного окремого полігону громади розрахована за формулою:</p>
+      <math class="data-formula" display="block" aria-label="Формула розрахунку чисельності населення" data-i18n-aria="formulaLabel">
+        <mrow>
+          <msub><mi>P</mi><mi>j</mi></msub>
+          <mo>=</mo>
+          <munder><mo>∑</mo><mi>i</mi></munder>
+          <msub><mi>V</mi><mi>i</mi></msub>
+          <mfrac>
+            <mrow><mi>A</mi><mo>(</mo><msub><mi>C</mi><mi>i</mi></msub><mo>∩</mo><msub><mi>H</mi><mi>j</mi></msub><mo>)</mo></mrow>
+            <mrow><mi>A</mi><mo>(</mo><msub><mi>C</mi><mi>i</mi></msub><mo>)</mo></mrow>
+          </mfrac>
+        </mrow>
+      </math>
     </dialog>
 
     <div id="loading" class="loading" role="status">

@@ -6,6 +6,8 @@ A buildless, GitHub-Pages-compatible prototype for exploring the population attr
 
 - animated 2021–2026 timeline;
 - absolute population and change-since-2021 views;
+- Viridis thematic colours imported from the supplied QGIS colour ramp;
+- OpenStreetMap background tiles with attribution;
 - admin-3 search;
 - click details and a six-year sparkline;
 - responsive desktop/mobile layout;

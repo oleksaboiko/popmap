@@ -69,10 +69,11 @@ input:focus-visible {
   left: 1.25rem;
   display: grid;
   gap: 1.25rem;
-  width: min(33rem, calc(100vw - 8rem));
+  width: min(24rem, calc(100vw - 2.5rem));
 }
 
 .title-card {
+  width: 100%;
   padding: 1.15rem 1.35rem 1.2rem;
   border-radius: 1.1rem;
 }
@@ -118,7 +119,7 @@ h1 {
 }
 
 .control-card {
-  width: min(24rem, 100%);
+  width: 100%;
   padding: 1rem;
   border-radius: 1.1rem;
 }
@@ -327,6 +328,13 @@ input[type="range"] {
 .info-dialog p { color: var(--ink-soft); line-height: 1.55; }
 .dialog-close { position: absolute; top: 0.9rem; right: 0.9rem; cursor: pointer; }
 .data-warning { padding: 0.8rem 0.9rem; border-left: 0.3rem solid var(--coral); background: #f1e6da; }
+
+.data-formula {
+  margin: 0.25rem auto 0.4rem;
+  color: var(--ink);
+  font-size: 1.35rem;
+  overflow-x: auto;
+}
 
 .loading {
   position: absolute;

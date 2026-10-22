@@ -2,9 +2,10 @@ import * as maplibregl from "https://unpkg.com/maplibre-gl@6.15.0/dist/maplibre-
 
 const YEARS = [2021, 2022, 2023, 2024, 2025, 2026];
 const POP_BREAKS = [5000, 10000, 25000, 50000, 100000, 250000, 500000];
-const POP_COLORS = ["#f6eedf", "#f6d8bd", "#efb188", "#e48661", "#d65b45", "#ab3938", "#742a37", "#3d2031"];
+const VIRIDIS_COLORS = ["#440154", "#46307e", "#355e8d", "#27808e", "#1fa188", "#46c06f", "#a2da37", "#fde725"];
+const POP_COLORS = VIRIDIS_COLORS;
 const CHANGE_BREAKS = [-25, -20, -15, -10, -5, 0, 5];
-const CHANGE_COLORS = ["#173f5f", "#28688a", "#5a91a8", "#9dbbc2", "#e6e1d7", "#d8c79f", "#90aa72", "#3d785c"];
+const CHANGE_COLORS = VIRIDIS_COLORS;
 const TRANSLATIONS = {
   uk: {
     pageTitle: "Зміна чисельності населення України · 2021–2026",
@@ -33,7 +34,8 @@ const TRANSLATIONS = {
     dataNote: "Примітка про дані",
     prototypeShows: "Що це за дані?",
     sourceDescription: "Геодані містять 1 780 полігонів адміністративних меж громад, та інформацію про зміни чисельності — від <code>p2021</code> до <code>p2026</code>. Система координат - WGS 84. Полігони меж громад спрощено для ефективнішого відображення у вебі.",
-    scopeDescription: "Кількість мешканців для кожного окремого полігону громади розрахована за формулою \\(P_j = \\sum_i V_i \\,\\frac{A(C_i \\cap H_j)}{A(C_i)}\\).",
+    scopeDescription: "Кількість мешканців для кожного окремого полігону громади розрахована за формулою:",
+    formulaLabel: "P з індексом j дорівнює сумі за i: V з індексом i, помноженому на відношення площі перетину C з індексом i та H з індексом j до площі C з індексом i",
     preparing: "Підготовка 1 780 територій…",
     play: "Відтворити анімацію",
     pause: "Призупинити анімацію",
@@ -75,7 +77,8 @@ const TRANSLATIONS = {
     dataNote: "Data note",
     prototypeShows: "What are these data?",
     sourceDescription: "The geodata contain 1,780 polygons representing community administrative boundaries and information on population change, from <code>p2021</code> to <code>p2026</code>. The coordinate reference system is WGS 84. Community boundary polygons were simplified for more efficient web display.",
-    scopeDescription: "The number of residents in each community polygon was calculated using the formula \\(P_j = \\sum_i V_i \\,\\frac{A(C_i \\cap H_j)}{A(C_i)}\\).",
+    scopeDescription: "The number of residents in each community polygon was calculated using the formula:",
+    formulaLabel: "P sub j equals the sum over i of V sub i multiplied by the area of the intersection of C sub i and H sub j divided by the area of C sub i",
     preparing: "Preparing 1,780 areas…",
     play: "Play animation",
     pause: "Pause animation",
@@ -139,8 +142,19 @@ const map = new maplibregl.Map({
   container: "map",
   style: {
     version: 8,
-    sources: {},
-    layers: [{ id: "background", type: "background", paint: { "background-color": "#dce8e8" } }]
+    sources: {
+      openstreetmap: {
+        type: "raster",
+        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+        tileSize: 256,
+        maxzoom: 19,
+        attribution: "© OpenStreetMap contributors"
+      }
+    },
+    layers: [
+      { id: "background", type: "background", paint: { "background-color": "#dce8e8" } },
+      { id: "openstreetmap", type: "raster", source: "openstreetmap", paint: { "raster-opacity": 0.82, "raster-saturation": -0.35 } }
+    ]
   },
   center: [31.2, 48.5],
   zoom: 4.8,
@@ -151,7 +165,7 @@ const map = new maplibregl.Map({
 
 map.on("error", event => console.error("MAPLIBRE_ERROR", event.error?.message || event));
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
-map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Prototype data · simplified for web display" }));
+map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Population data · simplified for web display" }));
 
 function fieldForYear(year = state.year) {
   return `p${year}`;
@@ -385,7 +399,7 @@ async function initialize() {
       source: "areas",
       paint: {
         "fill-color": populationExpression(),
-        "fill-opacity": ["case", ["boolean", ["feature-state", "selected"], false], 0.98, ["boolean", ["feature-state", "hover"], false], 0.92, 0.82]
+        "fill-opacity": ["case", ["boolean", ["feature-state", "selected"], false], 0.92, ["boolean", ["feature-state", "hover"], false], 0.82, 0.68]
       }
     });
     map.addLayer({
