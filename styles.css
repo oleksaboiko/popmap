@@ -62,12 +62,17 @@ input:focus-visible {
   backdrop-filter: blur(18px) saturate(115%);
 }
 
-.title-card {
+.left-panel {
   position: absolute;
   z-index: 3;
   top: 1.25rem;
   left: 1.25rem;
+  display: grid;
+  gap: 1.25rem;
   width: min(33rem, calc(100vw - 8rem));
+}
+
+.title-card {
   padding: 1.15rem 1.35rem 1.2rem;
   border-radius: 1.1rem;
 }
@@ -113,11 +118,7 @@ h1 {
 }
 
 .control-card {
-  position: absolute;
-  z-index: 3;
-  top: 9.7rem;
-  left: 1.25rem;
-  width: min(24rem, calc(100vw - 2.5rem));
+  width: min(24rem, 100%);
   padding: 1rem;
   border-radius: 1.1rem;
 }
@@ -388,12 +389,13 @@ input[type="range"] {
 @media (max-width: 860px) {
   .app-shell { min-height: 100svh; overflow: auto; }
   .map { position: relative; height: 67svh; min-height: 32rem; }
+  .left-panel { position: relative; inset: auto; width: auto; margin: -4.8rem 0.75rem 0.75rem; gap: 0.75rem; }
   .title-card,
   .control-card,
   .timeline-card,
   .info-button { position: relative; inset: auto; width: auto; margin: 0.75rem; }
-  .title-card { margin-top: -4.8rem; }
-  .control-card { margin-top: 0; }
+  .title-card,
+  .control-card { margin: 0; }
   .timeline-card { grid-template-columns: auto 1fr; }
   .legend { grid-column: 1 / -1; padding-top: 0.6rem; border-top: 1px solid var(--line); }
   .info-button { display: block; margin: 0.75rem auto 1.25rem; }
@@ -401,7 +403,7 @@ input[type="range"] {
 }
 
 @media (max-width: 520px) {
-  .title-card { margin-top: -3.4rem; }
+  .left-panel { margin-top: -3.4rem; }
   h1 { font-size: 1.8rem; }
   .summary { grid-template-columns: 0.55fr 1.2fr 1fr; }
   .summary-label { font-size: 0.6rem; }

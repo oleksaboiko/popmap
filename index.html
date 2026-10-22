@@ -17,16 +17,17 @@
   <main class="app-shell">
     <div id="map" class="map" aria-label="Interactive population map of Ukraine"></div>
 
+    <div class="left-panel">
     <header class="title-card glass-card card border-0 shadow">
       <div class="title-meta">
-        <p class="eyebrow" data-i18n="eyebrow">Україна · адміністративні території</p>
+        <p class="eyebrow" data-i18n="eyebrow">Україна · Дослідження</p>
         <div class="btn-group btn-group-sm language-switch" role="group" aria-label="Мова інтерфейсу" data-i18n-aria="languageLabel">
           <button class="btn btn-primary active" type="button" data-language="uk" aria-pressed="true">УКР</button>
           <button class="btn btn-outline-primary" type="button" data-language="en" aria-pressed="false">EN</button>
         </div>
       </div>
       <h1 data-i18n="title">Динаміка населення</h1>
-      <p class="subtitle" data-i18n="subtitle">Досліджуйте надані показники чисельності населення за 2021–2026 роки.</p>
+      <p class="subtitle" data-i18n="subtitle">Зміни чисельності населення у 2021–2026 роках. За даними worldpop.org</p>
     </header>
 
     <aside class="control-card glass-card card border-0 shadow" aria-label="Керування картою" data-i18n-aria="mapControls">
@@ -58,11 +59,11 @@
       </section>
 
       <section id="selection" class="selection" aria-live="polite">
-        <p class="selection-kicker" data-i18n="areaDetail">Відомості про територію</p>
-        <h2 data-i18n="selectArea">Виберіть територію</h2>
-        <p data-i18n="selectHelp">Натисніть полігон або знайдіть назву, щоб переглянути динаміку населення.</p>
+        <p class="selection-kicker" data-i18n="areaDetail">Відомості про громаду</p>
+        <p data-i18n="selectHelp">Натисніть полігон або знайдіть назву, щоб переглянути динаміку чисельності.</p>
       </section>
     </aside>
+    </div>
 
     <section class="timeline-card glass-card card border-0 shadow" aria-label="Часова шкала населення" data-i18n-aria="populationTimeline">
       <button id="play-button" class="play-button btn btn-primary" type="button" aria-label="Відтворити анімацію" aria-pressed="false">
@@ -89,10 +90,9 @@
     <dialog id="info-dialog" class="info-dialog">
       <button id="close-info" class="dialog-close btn-close" type="button" aria-label="Закрити інформацію" data-i18n-aria="closeInformation"></button>
       <p class="eyebrow" data-i18n="dataNote">Примітка про дані</p>
-      <h2 data-i18n="prototypeShows">Що показує цей прототип</h2>
-      <p data-i18n-html="sourceDescription">Джерело містить 1 780 полігонів третього адміністративного рівня та шість атрибутів населення — від <code>p2021</code> до <code>p2026</code>. Геометрію перетворено у WGS 84 і спрощено приблизно до 100 метрів для відображення у вебі.</p>
-      <p data-i18n="scopeDescription">Шар містить територіальні громади, ради та кілька державних територій. Перед публікацією уточніть склад одиниць і те, чи показники за наступні роки є спостереженнями, оцінками або прогнозами.</p>
-      <p class="data-warning" data-i18n-html="publicationCheck"><strong>Перевірка перед публікацією:</strong> додайте авторитетне джерело, методологію, дату оновлення та ліцензію на повторне використання, перш ніж вважати цю карту публічним інформаційним продуктом.</p>
+      <h2 data-i18n="prototypeShows">Що це за дані?</h2>
+      <p data-i18n-html="sourceDescription">Геодані містять 1 780 полігонів адміністративних меж громад, та інформацію про зміни чисельності — від <code>p2021</code> до <code>p2026</code>. Система координат - WGS 84. Полігони меж громад спрощено для ефективнішого відображення у вебі.</p>
+      <p data-i18n="scopeDescription">Кількість мешканців для кожного окремого полігону громади розрахована за формулою \(P_j = \sum_i V_i \,\frac{A(C_i \cap H_j)}{A(C_i)}\).</p>
     </dialog>
 
     <div id="loading" class="loading" role="status">
