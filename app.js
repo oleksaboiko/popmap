@@ -339,6 +339,16 @@ function selectFeature(feature, zoom = true) {
   state.selectedFeature = feature;
   map.setFeatureState({ source: "areas", id: state.selectedId }, { selected: true });
   renderSelection();
+
+  const panel = elements.selection.closest(".control-card");
+  window.requestAnimationFrame(() => {
+    if (panel.scrollHeight <= panel.clientHeight) return;
+    panel.scrollTo({
+      top: panel.scrollHeight,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
+  });
+
   if (zoom) map.fitBounds(coordinatesBounds(feature.geometry), { padding: 90, maxZoom: 8.2, duration: 900 });
 }
 

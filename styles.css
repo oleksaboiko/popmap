@@ -247,22 +247,22 @@ h1 {
   display: grid;
   grid-template-columns: auto minmax(18rem, 1fr) minmax(17rem, 0.7fr);
   align-items: center;
-  gap: 1rem;
-  min-height: 6.5rem;
-  padding: 0.9rem 1.1rem;
+  gap: 0.75rem;
+  min-height: 5.25rem;
+  padding: 0.65rem 0.9rem;
   border-radius: 1.1rem;
 }
 
 .play-button {
   display: grid;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   place-items: center;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.play-button svg { width: 1.3rem; fill: currentColor; }
+.play-button svg { width: 1.05rem; fill: currentColor; }
 .play-button .pause-icon,
 .play-button.playing .play-icon { display: none; }
 .play-button.playing .pause-icon { display: block; }
@@ -272,13 +272,13 @@ h1 {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
   color: var(--ink-soft);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
 }
 
-.timeline-heading strong { color: var(--ink); font-size: 1.75rem; font-weight: 600; }
+.timeline-heading strong { color: var(--ink); font-size: 1.5rem; font-weight: 600; }
 
 input[type="range"] {
   width: 100%;
@@ -286,18 +286,18 @@ input[type="range"] {
   cursor: pointer;
 }
 
-.year-ticks { display: flex; justify-content: space-between; color: #687681; font-size: 0.62rem; font-variant-numeric: tabular-nums; }
+.year-ticks { display: flex; justify-content: space-between; color: #687681; font-size: 0.58rem; font-variant-numeric: tabular-nums; }
 
 .legend {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.45rem 0.65rem;
+  gap: 0.28rem 0.55rem;
   color: var(--ink-soft);
-  font-size: 0.66rem;
+  font-size: 0.6rem;
 }
 
 .legend-item { display: flex; align-items: center; gap: 0.35rem; min-width: 0; }
-.legend-swatch { width: 1.2rem; height: 0.65rem; flex: 0 0 auto; border-radius: 0.16rem; box-shadow: inset 0 0 0 1px rgb(17 26 37 / 10%); }
+.legend-swatch { width: 1.05rem; height: 0.55rem; flex: 0 0 auto; border-radius: 0.16rem; box-shadow: inset 0 0 0 1px rgb(17 26 37 / 10%); }
 
 .info-button {
   position: absolute;
@@ -393,6 +393,26 @@ input[type="range"] {
 .maplibregl-popup-tip { display: none; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+@media (min-width: 861px) {
+  .left-panel {
+    bottom: 8.9rem;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .control-card {
+    align-self: start;
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: rgb(108 117 125 / 55%) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
+
+  .control-card::-webkit-scrollbar { width: 0.45rem; }
+  .control-card::-webkit-scrollbar-thumb { border-radius: 999px; background: rgb(108 117 125 / 55%); }
+}
 
 @media (max-width: 860px) {
   .app-shell { min-height: 100svh; overflow: auto; }
