@@ -233,10 +233,27 @@ h1 {
 .selection-value-row span { font-size: 0.75rem; font-weight: 750; }
 .selection-value-row .positive { color: var(--positive); }
 .selection-value-row .negative { color: var(--negative); }
-.sparkline { display: block; width: 100%; height: 56px; margin-top: 0.35rem; overflow: visible; }
-.sparkline-path { fill: none; stroke: var(--coral); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5; }
-.sparkline-area { fill: rgb(220 104 77 / 12%); }
+.sparkline { display: block; width: 100%; height: 74px; margin-top: 0.35rem; overflow: visible; }
+.sparkline-path { fill: none; stroke: var(--coral); stroke-dasharray: 1; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5; animation: draw-sparkline 420ms ease-out both; }
+.sparkline-area { fill: rgb(220 104 77 / 12%); animation: reveal-sparkline-area 420ms ease-out both; }
 .sparkline-dot { fill: var(--paper); stroke: var(--coral); stroke-width: 2; }
+.sparkline-dot.is-current { fill: var(--coral); }
+.sparkline-values { fill: var(--ink-soft); font-size: 9px; font-variant-numeric: tabular-nums; }
+
+@keyframes draw-sparkline {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes reveal-sparkline-area {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkline-path,
+  .sparkline-area { animation: none; }
+}
 
 .timeline-card {
   position: absolute;
