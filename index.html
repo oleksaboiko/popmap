@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Інтерактивна карта зміни чисельності населення територій України у 2021–2026 роках.">
+  <meta name="theme-color" content="#111a25">
+  <title>Зміна чисельності населення України · 2021–2026</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.15.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div id="map" class="map" aria-label="Interactive population map of Ukraine"></div>
+
+    <header class="title-card glass-card card border-0 shadow">
+      <div class="title-meta">
+        <p class="eyebrow" data-i18n="eyebrow">Україна · адміністративні території</p>
+        <div class="btn-group btn-group-sm language-switch" role="group" aria-label="Мова інтерфейсу" data-i18n-aria="languageLabel">
+          <button class="btn btn-primary active" type="button" data-language="uk" aria-pressed="true">УКР</button>
+          <button class="btn btn-outline-primary" type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+      <h1 data-i18n="title">Динаміка населення</h1>
+      <p class="subtitle" data-i18n="subtitle">Досліджуйте надані показники чисельності населення за 2021–2026 роки.</p>
+    </header>
+
+    <aside class="control-card glass-card card border-0 shadow" aria-label="Керування картою" data-i18n-aria="mapControls">
+      <label class="search-label" for="area-search" data-i18n="findArea">Знайти територію</label>
+      <div class="search-wrap">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.1-5.4a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+        <input id="area-search" class="form-control" type="search" autocomplete="off" placeholder="Назва, область або код" data-i18n-placeholder="searchPlaceholder">
+      </div>
+      <ul id="search-results" class="search-results" hidden></ul>
+
+      <div class="mode-switch btn-group" role="group" aria-label="Відображення карти" data-i18n-aria="mapDisplay">
+        <button class="mode-button btn btn-sm btn-primary active" type="button" data-mode="population" aria-pressed="true" data-i18n="population">Населення</button>
+        <button class="mode-button btn btn-sm btn-outline-primary" type="button" data-mode="change" aria-pressed="false" data-i18n="changeSince">Зміна з 2021 р.</button>
+      </div>
+
+      <section class="summary" aria-live="polite">
+        <div>
+          <span class="summary-label" data-i18n="year">Рік</span>
+          <strong id="summary-year">2021</strong>
+        </div>
+        <div>
+          <span class="summary-label" data-i18n="totalPopulation">Загальна чисельність</span>
+          <strong id="summary-total" data-i18n="loadingShort">Завантаження…</strong>
+        </div>
+        <div>
+          <span class="summary-label" data-i18n="annualChange">Річна зміна</span>
+          <strong id="summary-change" class="change-value">—</strong>
+        </div>
+      </section>
+
+      <section id="selection" class="selection" aria-live="polite">
+        <p class="selection-kicker" data-i18n="areaDetail">Відомості про територію</p>
+        <h2 data-i18n="selectArea">Виберіть територію</h2>
+        <p data-i18n="selectHelp">Натисніть полігон або знайдіть назву, щоб переглянути динаміку населення.</p>
+      </section>
+    </aside>
+
+    <section class="timeline-card glass-card card border-0 shadow" aria-label="Часова шкала населення" data-i18n-aria="populationTimeline">
+      <button id="play-button" class="play-button btn btn-primary" type="button" aria-label="Відтворити анімацію" aria-pressed="false">
+        <svg class="play-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></svg>
+        <svg class="pause-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+      </button>
+      <div class="timeline-main">
+        <div class="timeline-heading">
+          <span id="timeline-label">Населення у 2021 році</span>
+          <strong id="year-display">2021</strong>
+        </div>
+        <input id="year-slider" class="form-range" type="range" min="2021" max="2026" step="1" value="2021" aria-label="Рік карти" data-i18n-aria="mapYear">
+        <div class="year-ticks" aria-hidden="true">
+          <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+        </div>
+      </div>
+      <div id="legend" class="legend" aria-label="Легенда карти" data-i18n-aria="mapLegend"></div>
+    </section>
+
+    <button id="info-button" class="info-button btn btn-light btn-sm shadow-sm" type="button" aria-haspopup="dialog" aria-controls="info-dialog" data-i18n="aboutData">
+      Про дані
+    </button>
+
+    <dialog id="info-dialog" class="info-dialog">
+      <button id="close-info" class="dialog-close btn-close" type="button" aria-label="Закрити інформацію" data-i18n-aria="closeInformation"></button>
+      <p class="eyebrow" data-i18n="dataNote">Примітка про дані</p>
+      <h2 data-i18n="prototypeShows">Що показує цей прототип</h2>
+      <p data-i18n-html="sourceDescription">Джерело містить 1 780 полігонів третього адміністративного рівня та шість атрибутів населення — від <code>p2021</code> до <code>p2026</code>. Геометрію перетворено у WGS 84 і спрощено приблизно до 100 метрів для відображення у вебі.</p>
+      <p data-i18n="scopeDescription">Шар містить територіальні громади, ради та кілька державних територій. Перед публікацією уточніть склад одиниць і те, чи показники за наступні роки є спостереженнями, оцінками або прогнозами.</p>
+      <p class="data-warning" data-i18n-html="publicationCheck"><strong>Перевірка перед публікацією:</strong> додайте авторитетне джерело, методологію, дату оновлення та ліцензію на повторне використання, перш ніж вважати цю карту публічним інформаційним продуктом.</p>
+    </dialog>
+
+    <div id="loading" class="loading" role="status">
+      <span class="loading-mark"></span>
+      <span data-i18n="preparing">Підготовка 1 780 територій…</span>
+    </div>
+  </main>
+
+  <script>
+    const loadingPanel = document.querySelector("#loading");
+
+    if (window.location.protocol === "file:") {
+      loadingPanel.classList.add("error");
+      loadingPanel.innerHTML = `
+        <div class="loading-message">
+          <strong>Відкрийте карту через локальний вебсервер</strong>
+          <span>Браузери блокують файли карти, якщо відкрити <code>index.html</code> безпосередньо. Browsers block map files opened directly.</span>
+          <span>Запустіть <code>./serve-local.sh</code>, потім відкрийте <code>http://127.0.0.1:8000</code>.</span>
+        </div>
+      `;
+    } else {
+      window.mapStartupTimeout = window.setTimeout(() => {
+        if (loadingPanel.classList.contains("hidden")) return;
+        loadingPanel.classList.add("error");
+        loadingPanel.innerHTML = `
+          <div class="loading-message">
+            <strong>Карта завантажується довше, ніж очікувалося</strong>
+            <span>Перевірте консоль браузера та доступ до <code>unpkg.com</code> і <code>cdn.jsdelivr.net</code>.</span>
+          </div>
+        `;
+      }, 20000);
+    }
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
