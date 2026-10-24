@@ -12,6 +12,7 @@ A buildless, GitHub-Pages-compatible prototype for exploring the population attr
 - click details and a six-year sparkline;
 - responsive desktop/mobile layout;
 - Ukrainian and English interface locales;
+- bilingual Dublin Core / DCAT metadata with JSON-LD and Turtle/RDF serializations;
 - Bootstrap 5.3.8 / Bootswatch Default interface styling;
 - an optimized 100 m simplified GeoJSON layer.
 
@@ -24,6 +25,12 @@ The mapped dataset was created by [Oleksii Boiko](https://oleksaboyko.com). This
 ## Licence
 
 Except where otherwise noted, the original material in this repository is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE.md](LICENSE.md) for attribution requirements and third-party licence exceptions.
+
+## Dataset metadata
+
+The [human-readable metadata page](metadata/) documents the dataset’s scope, methodology, administrative composition, territorial treatment, provenance, limitations and recommended uses in Ukrainian and English. Machine-readable records are available as [JSON-LD](metadata/dataset.jsonld) and [Turtle/RDF](metadata/dataset.ttl), using Dublin Core Terms, DCAT 3, PROV-O and the Data Quality Vocabulary (DQV).
+
+The source URL, publication/reference date and licence for the Ministry of Infrastructure’s Ukraine Legacy Admin 3 boundary layer were not supplied when this metadata was prepared. The metadata records that gap explicitly; it should be completed when authoritative source details become available.
 
 ## Preview locally
 

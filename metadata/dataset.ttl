@@ -1,0 +1,212 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://oleksaboiko.github.io/popmap/#catalog-record> a dcat:CatalogRecord ;
+    dcterms:conformsTo <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/>,
+        <https://www.w3.org/TR/vocab-dcat-3/>,
+        <https://www.w3.org/TR/vocab-dqv/> ;
+    dcterms:hasFormat <https://oleksaboiko.github.io/popmap/#metadata-jsonld>,
+        <https://oleksaboiko.github.io/popmap/#metadata-turtle> ;
+    dcterms:issued "2026-10-24"^^xsd:date ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>,
+        <http://id.loc.gov/vocabulary/iso639-1/uk> ;
+    dcterms:modified "2026-10-24"^^xsd:date ;
+    dcterms:title "Metadata record for the Ukraine population-change dataset"@en,
+        "Метадані набору даних про зміну чисельності населення України"@uk ;
+    foaf:primaryTopic <https://oleksaboiko.github.io/popmap/#dataset> .
+
+<https://oleksaboiko.github.io/popmap/#annotation-limitations> a dqv:QualityAnnotation ;
+    oa:hasBody [ a oa:TextualBody ;
+            rdf:value "Population values are modelled estimates derived from WorldPop’s approximately 100-metre gridded population product and are not official census counts. Source uncertainty is inherited from WorldPop’s input demographic data, projection methods and spatial modelling. Grid-cell values were allocated to administrative polygons proportionally to the area of intersection, which assumes uniform population distribution within each intersected cell and may introduce boundary-cell allocation error. Values were rounded to whole persons. Polygon simplification was performed after population calculation and affects web-display geometry rather than population attributes. Conflict-period values are not real-time estimates of population displacement."@en ],
+        [ a oa:TextualBody ;
+            rdf:value "Значення чисельності є модельованими оцінками на основі сіткового продукту WorldPop із приблизною роздільністю 100 м, а не офіційними даними перепису. Набір успадковує невизначеність демографічних джерел, методів прогнозування та просторового моделювання WorldPop. Пропорційний розподіл за площею перетину припускає рівномірний розподіл населення в межах кожної перетнутої комірки й може створювати похибку на межових комірках. Значення округлено до цілих осіб. Спрощення полігонів виконано після розрахунку населення, тому воно впливає на вебгеометрію, але не на атрибути населення. Дані конфліктного періоду не є оцінкою переміщення населення в реальному часі."@uk ] ;
+    oa:hasTarget <https://oleksaboiko.github.io/popmap/#dataset> .
+
+<https://oleksaboiko.github.io/popmap/#annotation-special-units> a dqv:QualityAnnotation ;
+    oa:hasBody [ a oa:TextualBody ;
+            rdf:value "In Crimea, the source geography contains 303 legacy city, settlement and village councils instead of territorial hromadas. Six state territories are retained for complete spatial coverage: the Chornobyl Exclusion Zone and five major water bodies. Values assigned to water-body polygons are raster-cell intersection artefacts and do not represent residents of those water bodies. One Bakhchysarai district feature lacks a TYPE value; four TYPE values contain spelling variants and are retained unchanged."@en ],
+        [ a oa:TextualBody ;
+            rdf:value "У Криму джерельна географія містить 303 міські, селищні й сільські ради замість територіальних громад. Для повного просторового покриття збережено шість державних територій: Чорнобильську зону відчуження та п’ять великих водойм. Значення для полігонів водойм є артефактами перетину комірок растра й не означають населення, що проживає у водоймах. Один об’єкт Бахчисарайського району не має значення TYPE; чотири значення TYPE містять орфографічні варіанти й збережені без змін."@uk ] ;
+    oa:hasTarget <https://oleksaboiko.github.io/popmap/#dataset> .
+
+<https://oleksaboiko.github.io/popmap/#annotation-territory> a dqv:QualityAnnotation ;
+    oa:hasBody [ a oa:TextualBody ;
+            rdf:value "Набір охоплює міжнародно визнану територію України без географічних винятків, включно з усіма тимчасово окупованими територіями. Для всіх шести років використано єдину фіксовану географію; зміни показників не спричинені щорічними змінами меж. Межі є довідковою адміністративною географією, не відображають фактичний територіальний контроль і не визнають адміністративних змін, запроваджених через окупацію."@uk ],
+        [ a oa:TextualBody ;
+            rdf:value "The dataset covers the internationally recognized territory of Ukraine without geographic exclusions, including all temporarily occupied territories. One fixed geography is used for all six years, so displayed changes are not caused by annual boundary changes. The boundaries are a reference administrative geography; they do not represent de facto territorial control or recognize administrative changes introduced through occupation."@en ] ;
+    oa:hasTarget <https://oleksaboiko.github.io/popmap/#dataset> .
+
+<https://oleksaboiko.github.io/popmap/#annotation-use> a dqv:QualityAnnotation ;
+    oa:hasBody [ a oa:TextualBody ;
+            rdf:value "Recommended for exploratory research and visualization, comparison of broad spatial patterns, aggregated analysis at hromada or larger levels, and identifying areas for further investigation. Not recommended as the sole source for official population totals, real-time displacement estimates, legal or electoral decisions, humanitarian resource allocation without corroborating evidence, building-, parcel- or household-level analysis, or precise year-to-year comparison of very small areas."@en ],
+        [ a oa:TextualBody ;
+            rdf:value "Рекомендовано для пошукових досліджень і візуалізації, порівняння загальних просторових закономірностей, агрегованого аналізу на рівні громад або вище та визначення територій для подальшого дослідження. Не рекомендовано як єдине джерело для офіційних підсумків населення, оцінок переміщення в реальному часі, юридичних чи виборчих рішень, розподілу гуманітарних ресурсів без підтвердження, аналізу на рівні будівель, ділянок чи домогосподарств або точного річного порівняння дуже малих територій."@uk ] ;
+    oa:hasTarget <https://oleksaboiko.github.io/popmap/#dataset> .
+
+<https://oleksaboiko.github.io/popmap/#distribution-geojson> a dcat:Distribution ;
+    dcterms:conformsTo <https://www.opengis.net/def/crs/EPSG/0/4326>,
+        <https://www.rfc-editor.org/rfc/rfc7946> ;
+    dcterms:format "GeoJSON" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    dcterms:title "GeoJSON web dataset"@en,
+        "Вебнабір даних GeoJSON"@uk ;
+    spdx:checksum [ a spdx:Checksum ;
+            spdx:algorithm spdx:checksumAlgorithm_sha256 ;
+            spdx:checksumValue "f4925fe6ba51922e29c855b805de4c27ef6bebf6d1d1e8e41582781ec7ccda92" ] ;
+    dcat:accessURL <https://oleksaboiko.github.io/popmap/data/admin3-population.geojson> ;
+    dcat:byteSize "5481815"^^xsd:nonNegativeInteger ;
+    dcat:downloadURL <https://oleksaboiko.github.io/popmap/data/admin3-population.geojson> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/geo+json> .
+
+<https://oleksaboiko.github.io/popmap/#measurement-feature-count> a dqv:QualityMeasurement ;
+    dqv:computedOn <https://oleksaboiko.github.io/popmap/#dataset> ;
+    dqv:isMeasurementOf <https://oleksaboiko.github.io/popmap/#metric-feature-count> ;
+    dqv:value "1780"^^xsd:nonNegativeInteger .
+
+<https://oleksaboiko.github.io/popmap/#measurement-missing-population> a dqv:QualityMeasurement ;
+    dqv:computedOn <https://oleksaboiko.github.io/popmap/#dataset> ;
+    dqv:isMeasurementOf <https://oleksaboiko.github.io/popmap/#metric-missing-population> ;
+    dqv:value "0"^^xsd:nonNegativeInteger .
+
+<https://oleksaboiko.github.io/popmap/#measurement-missing-type> a dqv:QualityMeasurement ;
+    dqv:computedOn <https://oleksaboiko.github.io/popmap/#dataset> ;
+    dqv:isMeasurementOf <https://oleksaboiko.github.io/popmap/#metric-missing-type> ;
+    dqv:value "1"^^xsd:nonNegativeInteger .
+
+<https://oleksaboiko.github.io/popmap/#measurement-type-variants> a dqv:QualityMeasurement ;
+    dqv:computedOn <https://oleksaboiko.github.io/popmap/#dataset> ;
+    dqv:isMeasurementOf <https://oleksaboiko.github.io/popmap/#metric-type-variants> ;
+    dqv:value "4"^^xsd:nonNegativeInteger .
+
+<https://oleksaboiko.github.io/popmap/#metadata-jsonld> a foaf:Document ;
+    dcterms:format <https://www.iana.org/assignments/media-types/application/ld+json> ;
+    dcterms:identifier "https://oleksaboiko.github.io/popmap/metadata/dataset.jsonld" ;
+    dcterms:title "Dataset metadata — JSON-LD" .
+
+<https://oleksaboiko.github.io/popmap/#metadata-turtle> a foaf:Document ;
+    dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:identifier "https://oleksaboiko.github.io/popmap/metadata/dataset.ttl" ;
+    dcterms:title "Dataset metadata — Turtle/RDF" .
+
+<https://oleksaboiko.github.io/popmap/#metric-feature-count> a dqv:Metric ;
+    skos:prefLabel "Feature count" ;
+    dqv:inDimension <https://oleksaboiko.github.io/popmap/#dimension-completeness> .
+
+<https://oleksaboiko.github.io/popmap/#metric-missing-population> a dqv:Metric ;
+    skos:prefLabel "Missing annual population values" ;
+    dqv:inDimension <https://oleksaboiko.github.io/popmap/#dimension-completeness> .
+
+<https://oleksaboiko.github.io/popmap/#metric-missing-type> a dqv:Metric ;
+    skos:prefLabel "Features with missing TYPE" ;
+    dqv:inDimension <https://oleksaboiko.github.io/popmap/#dimension-classification-consistency> .
+
+<https://oleksaboiko.github.io/popmap/#metric-type-variants> a dqv:Metric ;
+    skos:prefLabel "Features with spelling variants in TYPE" ;
+    dqv:inDimension <https://oleksaboiko.github.io/popmap/#dimension-classification-consistency> .
+
+<https://oleksaboiko.github.io/popmap/#spatial-extent> a dcterms:Location ;
+    dcat:bbox "POLYGON((22.13719 44.38642,40.22794 44.38642,40.22794 52.37949,22.13719 52.37949,22.13719 44.38642))"^^geo:wktLiteral .
+
+<https://oleksaboiko.github.io/popmap/#temporal-extent> a dcterms:PeriodOfTime ;
+    dcat:endDate "2026-01-01"^^xsd:date ;
+    dcat:startDate "2021-01-01"^^xsd:date .
+
+<https://hub.worldpop.org/geodata/summary?id=75852> a dcat:Dataset,
+        prov:Entity ;
+    dcterms:identifier "https://doi.org/10.5258/SOTON/WP00839" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:title "WorldPop — Individual countries 2015–2030 (100 m), R2025A v1, Ukraine" .
+
+<https://oleksaboiko.github.io/popmap/#dimension-classification-consistency> a dqv:Dimension ;
+    skos:prefLabel "Classification consistency" .
+
+<https://oleksaboiko.github.io/popmap/#dimension-completeness> a dqv:Dimension ;
+    skos:prefLabel "Completeness" .
+
+<https://oleksaboiko.github.io/popmap/#legacy-admin3-source> a dcat:Dataset,
+        prov:Entity ;
+    dcterms:description "Source administrative boundary dataset. Attributes were adjusted by Oleksii Boiko. The source URL, publication/reference date and licence had not been supplied when this metadata record was published."@en,
+        "Джерело адміністративних меж. Атрибути скоригував Олексій Бойко. URL джерела, дата публікації/актуальності та ліцензія не були надані на час публікації цих метаданих."@uk ;
+    dcterms:publisher "Ministry of Infrastructure of Ukraine" ;
+    dcterms:title "Ukraine Legacy Admin 3"@en,
+        "Ukraine Legacy Admin 3 — адміністративні межі"@uk .
+
+<https://oleksaboiko.com/#oleksii-boiko> a foaf:Person,
+        schema:Person ;
+    foaf:homepage <https://oleksaboiko.com/> ;
+    foaf:name "Oleksii Boiko" ;
+    schema:affiliation [ a schema:Organization ;
+            schema:name "Department of Regional Studies and Tourism, Kyiv National Economic University named after Vadym Hetman"@en,
+                "Кафедра регіоналістики і туризму, Київський національний економічний університет імені Вадима Гетьмана"@uk ] .
+
+<https://oleksaboiko.github.io/popmap/#dataset> a dcat:Dataset,
+        schema:Dataset ;
+    dcterms:abstract "Modelled annual population estimates and projections for 1,780 administrative and special territories of Ukraine on 1 January 2021–2026."@en,
+        "Модельовані річні оцінки та прогнози чисельності населення для 1 780 адміністративних і спеціальних територій України на 1 січня 2021–2026 років."@uk ;
+    dcterms:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dcterms:creator <https://oleksaboiko.com/#oleksii-boiko> ;
+    dcterms:description "The dataset combines a fixed Ukraine Legacy Admin 3 geography with approximately 100-metre WorldPop modelled population rasters. Grid-cell values were allocated to polygons in proportion to intersection area and rounded to whole persons. Geometry was simplified by 100 metres after the population calculation for efficient web display."@en,
+        "Набір поєднує фіксовану географію Ukraine Legacy Admin 3 із модельованими растрами WorldPop із приблизною просторовою роздільністю 100 м. Значення комірок розподілено між полігонами пропорційно площі перетину; результати округлено до цілих осіб. Геометрію спрощено на 100 м після обчислення показників для ефективного вебвідображення."@uk ;
+    dcterms:identifier "https://oleksaboiko.github.io/popmap/#dataset" ;
+    dcterms:issued "2026-10-24"^^xsd:date ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>,
+        <http://id.loc.gov/vocabulary/iso639-1/uk> ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    dcterms:modified "2026-10-24"^^xsd:date ;
+    dcterms:provenance "Oleksii Boiko adjusted the boundary attributes, allocated WorldPop grid-cell values to polygons in proportion to intersection area, rounded results to whole persons, transformed geometry to EPSG:4326 and simplified it by 100 metres after calculating population."@en,
+        "Олексій Бойко скоригував атрибути меж, виконав пропорційний до площі перетину розподіл значень комірок WorldPop між полігонами, округлив результати до цілих осіб, перетворив геометрію в EPSG:4326 та спростив її на 100 м після розрахунку населення."@uk ;
+    dcterms:publisher <https://oleksaboiko.com/#oleksii-boiko> ;
+    dcterms:relation <https://github.com/oleksaboiko/popmap> ;
+    dcterms:rights "The original processed dataset and documentation are licensed under CC BY-SA 4.0. Third-party source material retains its original licences."@en,
+        "Оригінальний опрацьований набір даних і документація ліцензовані за CC BY-SA 4.0. Вихідні матеріали третіх сторін зберігають власні ліцензії."@uk ;
+    dcterms:rightsHolder <https://oleksaboiko.com/#oleksii-boiko> ;
+    dcterms:source <https://hub.worldpop.org/geodata/summary?id=75852>,
+        <https://oleksaboiko.github.io/popmap/#legacy-admin3-source> ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/UKR>,
+        <https://oleksaboiko.github.io/popmap/#spatial-extent> ;
+    dcterms:subject "demography"@en,
+        "population"@en,
+        "territorial communities"@en,
+        "демографія"@uk,
+        "населення"@uk,
+        "територіальні громади"@uk ;
+    dcterms:temporal <https://oleksaboiko.github.io/popmap/#temporal-extent> ;
+    dcterms:title "Population change in Ukrainian administrative areas, 2021–2026"@en,
+        "Зміна чисельності населення адміністративних територій України, 2021–2026"@uk ;
+    dcat:distribution <https://oleksaboiko.github.io/popmap/#distribution-geojson> ;
+    dcat:keyword "Ukraine"@en,
+        "WorldPop"@en,
+        "geospatial data"@en,
+        "population estimate"@en,
+        "Україна"@uk,
+        "просторовий аналіз"@uk,
+        "чисельність населення"@uk ;
+    dcat:landingPage <https://oleksaboiko.github.io/popmap/metadata/> ;
+    dcat:temporalResolution "P1Y"^^xsd:duration ;
+    dcat:version "1.0" ;
+    dqv:hasQualityAnnotation <https://oleksaboiko.github.io/popmap/#annotation-limitations>,
+        <https://oleksaboiko.github.io/popmap/#annotation-special-units>,
+        <https://oleksaboiko.github.io/popmap/#annotation-territory>,
+        <https://oleksaboiko.github.io/popmap/#annotation-use> ;
+    dqv:hasQualityMeasurement <https://oleksaboiko.github.io/popmap/#measurement-feature-count>,
+        <https://oleksaboiko.github.io/popmap/#measurement-missing-population>,
+        <https://oleksaboiko.github.io/popmap/#measurement-missing-type>,
+        <https://oleksaboiko.github.io/popmap/#measurement-type-variants> ;
+    prov:wasDerivedFrom <https://hub.worldpop.org/geodata/summary?id=75852>,
+        <https://oleksaboiko.github.io/popmap/#legacy-admin3-source> ;
+    foaf:page <https://oleksaboiko.github.io/popmap/> ;
+    schema:variableMeasured [ a schema:PropertyValue ;
+            schema:description "Modelled population on 1 January of the corresponding year, persons"@en,
+                "Модельована чисельність населення на 1 січня відповідного року, осіб"@uk ;
+            schema:name "p2021–p2026" ;
+            schema:unitText "persons" ] .
