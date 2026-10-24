@@ -62,9 +62,9 @@
         "Вебнабір даних GeoJSON"@uk ;
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm spdx:checksumAlgorithm_sha256 ;
-            spdx:checksumValue "f4925fe6ba51922e29c855b805de4c27ef6bebf6d1d1e8e41582781ec7ccda92" ] ;
+            spdx:checksumValue "fdc0cc8c2a078d702236515a55ab693491ada063fff8ed1e6276c4faf66e1552" ] ;
     dcat:accessURL <https://oleksaboiko.github.io/popmap/data/admin3-population.geojson> ;
-    dcat:byteSize "5481815"^^xsd:nonNegativeInteger ;
+    dcat:byteSize "5482412"^^xsd:nonNegativeInteger ;
     dcat:downloadURL <https://oleksaboiko.github.io/popmap/data/admin3-population.geojson> ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/application/geo+json> .
 

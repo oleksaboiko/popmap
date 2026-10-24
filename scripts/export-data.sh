@@ -22,4 +22,6 @@ ogr2ogr \
   -lco RFC7946=YES \
   -lco COORDINATE_PRECISION=5
 
+python3 "$SCRIPT_DIRECTORY/add-license-metadata.py" "$OUTPUT_GEOJSON"
+
 echo "Created $OUTPUT_GEOJSON"

@@ -26,6 +26,8 @@ The mapped dataset was created by [Oleksii Boiko](https://oleksaboyko.com). This
 
 Except where otherwise noted, the original material in this repository is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE.md](LICENSE.md) for attribution requirements and third-party licence exceptions.
 
+The GeoJSON distribution embeds the licence URL, attribution and reuse statement as top-level GeoJSON foreign members. The export workflow reapplies those fields whenever the web layer is regenerated.
+
 ## Dataset metadata
 
 The [human-readable metadata page](metadata/) documents the dataset’s scope, methodology, administrative composition, territorial treatment, provenance, limitations and recommended uses in Ukrainian and English. Machine-readable records are available as [JSON-LD](metadata/dataset.jsonld) and [Turtle/RDF](metadata/dataset.ttl), using Dublin Core Terms, DCAT 3, PROV-O and the Data Quality Vocabulary (DQV).
