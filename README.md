@@ -17,6 +17,14 @@ A buildless, GitHub-Pages-compatible prototype for exploring the population attr
 
 The web layer contains 1,780 polygons and is approximately 5.3 MB before HTTP compression and approximately 1.5 MB compressed.
 
+## Authorship and AI assistance
+
+The mapped dataset was created by [Oleksii Boiko](https://oleksaboyko.com). This repository and its GitHub Pages site were created with assistance from OpenAI GPT-5.6 Sol.
+
+## Licence
+
+Except where otherwise noted, the original material in this repository is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE.md](LICENSE.md) for attribution requirements and third-party licence exceptions.
+
 ## Preview locally
 
 Do not open `index.html` by double-clicking it: browsers block the module and GeoJSON requests from a `file://` URL. In this directory, run:
