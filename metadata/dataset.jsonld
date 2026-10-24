@@ -44,11 +44,11 @@
       ],
       "dcterms:description": [
         {
-          "@value": "Набір поєднує фіксовану географію Ukraine Legacy Admin 3 із модельованими растрами WorldPop із приблизною просторовою роздільністю 100 м. Значення комірок розподілено між полігонами пропорційно площі перетину; результати округлено до цілих осіб. Геометрію спрощено на 100 м після обчислення показників для ефективного вебвідображення.",
+          "@value": "Набір поєднує адміністративні межі громад (NUTS 3) із модельованими растрами WorldPop із приблизною просторовою роздільністю 100 м. Значення комірок розподілено між полігонами пропорційно площі перетину; результати округлено до цілих осіб. Геометрію спрощено на 100 м після обчислення показників для ефективного вебвідображення.",
           "@language": "uk"
         },
         {
-          "@value": "The dataset combines a fixed Ukraine Legacy Admin 3 geography with approximately 100-metre WorldPop modelled population rasters. Grid-cell values were allocated to polygons in proportion to intersection area and rounded to whole persons. Geometry was simplified by 100 metres after the population calculation for efficient web display.",
+          "@value": "The dataset combines a fixed administrative boundaries  (NUTS 3) with approximately 100-metre WorldPop modelled population rasters. Grid-cell values were allocated to polygons in proportion to intersection area and rounded to whole persons. Geometry was simplified by 100 metres after the population calculation for efficient web display.",
           "@language": "en"
         }
       ],
@@ -192,11 +192,11 @@
       ],
       "dcterms:provenance": [
         {
-          "@value": "Олексій Бойко скоригував атрибути меж, виконав пропорційний до площі перетину розподіл значень комірок WorldPop між полігонами, округлив результати до цілих осіб, перетворив геометрію в EPSG:4326 та спростив її на 100 м після розрахунку населення.",
+          "@value": "Ці дані надаються 'як є', без жодних заяв щодо їхньої точності.",
           "@language": "uk"
         },
         {
-          "@value": "Oleksii Boiko adjusted the boundary attributes, allocated WorldPop grid-cell values to polygons in proportion to intersection area, rounded results to whole persons, transformed geometry to EPSG:4326 and simplified it by 100 metres after calculating population.",
+          "@value": "This data is provided 'as is,' without any statements regarding its accuracy.",
           "@language": "en"
         }
       ],
@@ -461,14 +461,14 @@
         {
           "@type": "oa:TextualBody",
           "rdf:value": {
-            "@value": "Значення чисельності є модельованими оцінками на основі сіткового продукту WorldPop із приблизною роздільністю 100 м, а не офіційними даними перепису. Набір успадковує невизначеність демографічних джерел, методів прогнозування та просторового моделювання WorldPop. Пропорційний розподіл за площею перетину припускає рівномірний розподіл населення в межах кожної перетнутої комірки й може створювати похибку на межових комірках. Значення округлено до цілих осіб. Спрощення полігонів виконано після розрахунку населення, тому воно впливає на вебгеометрію, але не на атрибути населення. Дані конфліктного періоду не є оцінкою переміщення населення в реальному часі.",
+            "@value": "Значення чисельності є модельованими оцінками на основі продукту WorldPop із приблизною роздільністю 100 м. Набір успадковує невизначеність демографічних джерел, методів прогнозування та просторового моделювання WorldPop.",
             "@language": "uk"
           }
         },
         {
           "@type": "oa:TextualBody",
           "rdf:value": {
-            "@value": "Population values are modelled estimates derived from WorldPop’s approximately 100-metre gridded population product and are not official census counts. Source uncertainty is inherited from WorldPop’s input demographic data, projection methods and spatial modelling. Grid-cell values were allocated to administrative polygons proportionally to the area of intersection, which assumes uniform population distribution within each intersected cell and may introduce boundary-cell allocation error. Values were rounded to whole persons. Polygon simplification was performed after population calculation and affects web-display geometry rather than population attributes. Conflict-period values are not real-time estimates of population displacement.",
+            "@value": "Population values are modelled estimates derived from WorldPop’s approximately 100-metre gridded population product and are not official census counts. Source uncertainty is inherited from WorldPop’s input demographic data, projection methods and spatial modelling.",
             "@language": "en"
           }
         }
@@ -507,14 +507,14 @@
         {
           "@type": "oa:TextualBody",
           "rdf:value": {
-            "@value": "Набір охоплює міжнародно визнану територію України без географічних винятків, включно з усіма тимчасово окупованими територіями. Для всіх шести років використано єдину фіксовану географію; зміни показників не спричинені щорічними змінами меж. Межі є довідковою адміністративною географією, не відображають фактичний територіальний контроль і не визнають адміністративних змін, запроваджених через окупацію.",
+            "@value": "Набір охоплює міжнародно визнану територію України без географічних винятків, включно з усіма тимчасово окупованими територіями. Для всіх шести років використано єдину фіксовану географію; зміни показників не спричинені щорічними змінами меж.",
             "@language": "uk"
           }
         },
         {
           "@type": "oa:TextualBody",
           "rdf:value": {
-            "@value": "The dataset covers the internationally recognized territory of Ukraine without geographic exclusions, including all temporarily occupied territories. One fixed geography is used for all six years, so displayed changes are not caused by annual boundary changes. The boundaries are a reference administrative geography; they do not represent de facto territorial control or recognize administrative changes introduced through occupation.",
+            "@value": "The dataset covers the internationally recognized territory of Ukraine without geographic exclusions, including all temporarily occupied territories. One fixed geography is used for all six years, so displayed changes are not caused by annual boundary changes.",
             "@language": "en"
           }
         }
@@ -530,14 +530,14 @@
         {
           "@type": "oa:TextualBody",
           "rdf:value": {
-            "@value": "У Криму джерельна географія містить 303 міські, селищні й сільські ради замість територіальних громад. Для повного просторового покриття збережено шість державних територій: Чорнобильську зону відчуження та п’ять великих водойм. Значення для полігонів водойм є артефактами перетину комірок растра й не означають населення, що проживає у водоймах. Один об’єкт Бахчисарайського району не має значення TYPE; чотири значення TYPE містять орфографічні варіанти й збережені без змін.",
+            "@value": "Для повного просторового покриття збережено шість державних територій, що не є громадами: Чорнобильську зону відчуження та п’ять великих водойм. Значення для полігонів водойм є артефактами перетину комірок растра й не означають населення, що проживає у водоймах.",
             "@language": "uk"
           }
         },
         {
           "@type": "oa:TextualBody",
           "rdf:value": {
-            "@value": "In Crimea, the source geography contains 303 legacy city, settlement and village councils instead of territorial hromadas. Six state territories are retained for complete spatial coverage: the Chornobyl Exclusion Zone and five major water bodies. Values assigned to water-body polygons are raster-cell intersection artefacts and do not represent residents of those water bodies. One Bakhchysarai district feature lacks a TYPE value; four TYPE values contain spelling variants and are retained unchanged.",
+            "@value": "Six state territories are retained for complete spatial coverage: the Chornobyl Exclusion Zone and five major water bodies. Values assigned to water-body polygons are raster-cell intersection artefacts and do not represent residents of those water bodies.",
             "@language": "en"
           }
         }
