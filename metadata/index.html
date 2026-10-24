@@ -84,6 +84,7 @@
             <section id="uk-identification" class="metadata-section">
               <p class="section-kicker">Dublin Core · опис</p>
               <h2>Ідентифікація</h2>
+              <p>Набір поєднує адміністративні межі громад (NUTS 3) із модельованими растрами WorldPop із приблизною просторовою роздільністю 100 м. Значення комірок розподілено між полігонами пропорційно площі перетину; результати округлено до цілих осіб. Геометрію спрощено на 100 м після обчислення показників для ефективного вебвідображення.</p>
               <dl class="metadata-list">
                 <div><dt>Назва</dt><dd>Зміна чисельності населення адміністративних територій України, 2021–2026</dd></div>
                 <div><dt>Автор і видавець</dt><dd><a href="https://oleksaboyko.com">Олексій Бойко</a>, аспірант кафедри регіоналістики і туризму КНЕУ</dd></div>
@@ -97,7 +98,7 @@
             <section id="uk-coverage" class="metadata-section">
               <p class="section-kicker">Dublin Core · простір і час</p>
               <h2>Охоплення</h2>
-              <p>Набір охоплює міжнародно визнану територію України без географічних винятків, включно з усіма тимчасово окупованими територіями. Межі є довідковою адміністративною географією; вони не відображають фактичний територіальний контроль і не визнають адміністративних змін, запроваджених через окупацію.</p>
+              <p>Набір охоплює міжнародно визнану територію України без географічних винятків, включно з усіма тимчасово окупованими територіями. Для всіх шести років використано єдину фіксовану географію; зміни показників не спричинені щорічними змінами меж.</p>
               <dl class="metadata-list compact">
                 <div><dt>Часове охоплення</dt><dd>1 січня 2021 — 1 січня 2026</dd></div>
                 <div><dt>Періодичність</dt><dd>щорічно, шість значень на об’єкт</dd></div>
@@ -121,7 +122,7 @@
                   <tfoot><tr><th>Усього</th><th class="text-end">1 780</th><th></th></tr></tfoot>
                 </table>
               </div>
-              <p>П’ять водойм: озеро Ялпуг, озеро Сасик, Дністровський, Куяльницький і Дофінівський лимани. Значення, розподілені до їхніх полігонів, є артефактами перетину комірок растра й не означають населення, що проживає у водоймах.</p>
+              <p>Для повного просторового покриття збережено шість державних територій, що не є громадами: Чорнобильську зону відчуження та п’ять великих водойм. Значення для полігонів водойм є артефактами перетину комірок растра й не означають населення, що проживає у водоймах.</p>
             </section>
 
             <section id="uk-method" class="metadata-section">
@@ -145,7 +146,8 @@
               <h2>Обмеження та належне використання</h2>
               <div class="notice warning">
                 <h3>Відомі обмеження</h3>
-                <p>Значення чисельності є модельованими оцінками на основі сіткового продукту WorldPop із приблизною роздільністю 100 м, а не офіційними даними перепису. Набір успадковує невизначеність демографічних джерел, методів прогнозування та просторового моделювання WorldPop. Пропорційний розподіл за площею перетину припускає рівномірний розподіл населення в межах кожної перетнутої комірки й може створювати похибку на межових комірках. Значення округлено до цілих осіб. Спрощення полігонів впливає на вебгеометрію, але не на попередньо розраховані атрибути населення. Дані конфліктного періоду не є оцінкою переміщення населення в реальному часі.</p>
+                <p>Ці дані надаються 'як є', без жодних заяв щодо їхньої точності.</p>
+                <p>Значення чисельності є модельованими оцінками на основі продукту WorldPop із приблизною роздільністю 100 м. Набір успадковує невизначеність демографічних джерел, методів прогнозування та просторового моделювання WorldPop.</p>
               </div>
               <div class="use-grid">
                 <div class="notice appropriate">
@@ -242,6 +244,7 @@
             <section id="en-identification" class="metadata-section">
               <p class="section-kicker">Dublin Core · description</p>
               <h2>Identification</h2>
+              <p>The dataset combines a fixed administrative boundaries  (NUTS 3) with approximately 100-metre WorldPop modelled population rasters. Grid-cell values were allocated to polygons in proportion to intersection area and rounded to whole persons. Geometry was simplified by 100 metres after the population calculation for efficient web display.</p>
               <dl class="metadata-list">
                 <div><dt>Title</dt><dd>Population change in Ukrainian administrative areas, 2021–2026</dd></div>
                 <div><dt>Creator and publisher</dt><dd><a href="https://oleksaboyko.com">Oleksii Boiko</a>, PhD student, Department of Regional Studies and Tourism, KNEU</dd></div>
@@ -255,7 +258,7 @@
             <section id="en-coverage" class="metadata-section">
               <p class="section-kicker">Dublin Core · space and time</p>
               <h2>Coverage</h2>
-              <p>The dataset covers the internationally recognized territory of Ukraine without geographic exclusions, including all temporarily occupied territories. The boundaries are a reference administrative geography; they do not represent de facto territorial control or recognize administrative changes introduced through occupation.</p>
+              <p>The dataset covers the internationally recognized territory of Ukraine without geographic exclusions, including all temporarily occupied territories. One fixed geography is used for all six years, so displayed changes are not caused by annual boundary changes.</p>
               <dl class="metadata-list compact">
                 <div><dt>Temporal coverage</dt><dd>1 January 2021 — 1 January 2026</dd></div>
                 <div><dt>Resolution</dt><dd>annual, six values per feature</dd></div>
@@ -279,7 +282,7 @@
                   <tfoot><tr><th>Total</th><th class="text-end">1,780</th><th></th></tr></tfoot>
                 </table>
               </div>
-              <p>The five water bodies are Lake Yalpuh, Lake Sasyk, the Dniester, Kuialnyk and Dofinivka limans. Values assigned to these polygons are raster-cell intersection artefacts and do not represent residents of the water bodies.</p>
+              <p>Six state territories are retained for complete spatial coverage: the Chornobyl Exclusion Zone and five major water bodies. Values assigned to water-body polygons are raster-cell intersection artefacts and do not represent residents of those water bodies.</p>
             </section>
 
             <section id="en-method" class="metadata-section">
@@ -303,7 +306,8 @@
               <h2>Limitations and appropriate use</h2>
               <div class="notice warning">
                 <h3>Known limitations</h3>
-                <p>Population values are modelled estimates derived from WorldPop’s approximately 100-metre gridded population product and are not official census counts. Source uncertainty is inherited from WorldPop’s input demographic data, projection methods and spatial modelling. Grid-cell values were allocated to administrative polygons proportionally to the area of intersection, which assumes uniform population distribution within each intersected cell and may introduce boundary-cell allocation error. Values were rounded to whole persons. Polygon simplification affects web geometry, not the previously calculated population attributes. Conflict-period values are not real-time estimates of population displacement.</p>
+                <p>This data is provided 'as is,' without any statements regarding its accuracy.</p>
+                <p>Population values are modelled estimates derived from WorldPop’s approximately 100-metre gridded population product and are not official census counts. Source uncertainty is inherited from WorldPop’s input demographic data, projection methods and spatial modelling.</p>
               </div>
               <div class="use-grid">
                 <div class="notice appropriate">
