@@ -55,15 +55,4 @@ The script rounds population values to whole people, transforms geometry from EP
 
 The resulting address will normally be `https://<account>.github.io/<repository>/`.
 
-## Publication checklist
-
-Before publishing, document:
-
-- the authoritative boundary and population sources;
-- whether 2022–2026 values are observations, estimates or projections;
-- the reference date for each year;
-- the licence that permits public redistribution;
-- why the layer includes 303 councils and six state territories in addition to territorial communities;
-- the treatment of occupied territories and boundary changes.
-
 The map currently uses MapLibre GL JS 6.15.0 from UNPKG and the Bootswatch Default (standard Bootstrap 5.3.8) stylesheet from jsDelivr. For a long-lived production deployment, consider vendoring these dependencies or adding an npm build that pins and bundles them.
